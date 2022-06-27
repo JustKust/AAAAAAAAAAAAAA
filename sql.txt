@@ -1,0 +1,69 @@
+CREATE TABLE IF NOT EXISTS Client
+(
+  ClientID INT PRIMARY KEY auto_increment,
+  Name VARCHAR(100) NOT NULL,
+  Surname VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  phone VARCHAR(11),
+  country VARCHAR(100) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  street VARCHAR(100) NOT NULL,
+  post_index VARCHAR(10) NOT NULL,
+  login VARCHAR(100) NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Company
+(
+  CompanyID INT PRIMARY KEY auto_increment,
+  Name VARCHAR(100) NOT NULL,
+  Email VARCHAR(100),
+  Phone VARCHAR(11)
+);
+
+CREATE TABLE IF NOT EXISTS Employee
+(
+  EmployeeID INT PRIMARY KEY auto_increment,
+  Name VARCHAR(100) NOT NULL,
+  Surname VARCHAR(100) NOT NULL,
+  Post VARCHAR(100) NOT NULL,
+  Phone VARCHAR(11) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  login VARCHAR(100) NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Product
+(
+  ProductID INT PRIMARY KEY auto_increment,
+  Name VARCHAR(100) NOT NULL,
+  Cost INT NOT NULL,
+  Availability INT NOT NULL,
+  CompanyID INT NOT NULL,
+  FOREIGN KEY (CompanyID) REFERENCES Company(CompanyID)
+);
+
+CREATE TABLE IF NOT EXISTS Orders
+(
+  OrderID INT PRIMARY KEY auto_increment,
+  post_index VARCHAR(10) NOT NULL,
+  country VARCHAR(100) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  street VARCHAR(100) NOT NULL,
+  Client_Name VARCHAR(100) NOT NULL,
+  ClientID INT NOT NULL,
+  EmployeeID INT NOT NULL,
+  FOREIGN KEY (ClientID) REFERENCES Client(ClientID),
+  FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+);
+
+CREATE TABLE IF NOT EXISTS Shopping_list
+(
+  ListID INT PRIMARY KEY auto_increment,
+  Price INT NOT NULL,
+  Amount INT NOT NULL,
+  OrderID INT NOT NULL,
+  ProductID INT NOT NULL,
+  FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);

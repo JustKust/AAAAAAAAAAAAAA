@@ -1,0 +1,26 @@
+INSERT INTO `internetshop`.`client` (`Name`,`Surname`,`email`,`phone`,`country`,`city`,`street`,`post_index`,`login`,`password`) VALUES ('Олег','Волков','volkov@v.ru','88005553535','Россия','г. Ростов','улица Текстильщиков, 26','152150','volk','AA76KNA4');
+INSERT INTO `internetshop`.`client` (`Name`,`Surname`,`email`,`phone`,`country`,`city`,`street`,`post_index`,`login`,`password`) VALUES ('Валентина','Трущук','Trushyk@v.ru','89255358756','Россия','г. Владимир','Ново-Ямская улица, 50','600015','osetr','jctnhjdfzbuhf');
+INSERT INTO `internetshop`.`client` (`Name`,`Surname`,`email`,`phone`,`country`,`city`,`street`,`post_index`,`login`,`password`) VALUES ('Распутин','Ефимович','ra-ra-rasputin@v.ru','9876543232','Россия','г. Красноярск','Авиационная улица, 18','660020','rasputin','tar-tar-taglia');
+
+
+INSERT INTO `cfcgdfgh`.`employee`(`Name`,`Surname`,`Post`,`Phone`,`email`,`login`,`password') VALUES('Константин','Казах','Администратор','87655679191','kazuha@v.ru','kazakh','kazuzuzuzu');
+INSERT INTO `cfcgdfgh`.`employee`(`Name`,`Surname`,`Post`,`Phone`,`email`,`login`,`password`) VALUES('Раиса','Сенная','Продавец','87652345382','raiden@v.ru','raiden','rararaidededen');
+INSERT INTO `cfcgdfgh`.`employee`(`Name`,`Surname`,`Post`,`Phone`,`email`,`login`,`password`) VALUES('Андрей','Камин','Продавец','84985126784','ayato@v.ru','ayato','kamisato');
+
+
+INSERT INTO `cfcgdfgh`.`company` (`Name`, `Email`, `Phone`) VALUES ('Favonius', 'favonius@v.ru', '87459812323');
+INSERT INTO `cfcgdfgh`.`company` (`Name`, `Email`, `Phone`) VALUES ('Fatui', 'fatui@v.ru', '89348365959');
+INSERT INTO `cfcgdfgh`.`company` (`Name`, `Email`, `Phone`) VALUES ('Qixing', 'qixing@v.ru', '89123458282');
+
+
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Сыр','100','1200','1');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Молоко','100','1200','1');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Капуста','100','1200','1');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Огненная вода','1090','1200','2');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Пельмени','200','1200','2');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Красная икра','900','1200','2');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Креветки','500','1200','3');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Семена лотоса','500','1200','3');
+INSERT INTO `cfcgdfgh`.`product`(`Name`,`Cost`,`Availability`,`CompanyID`) VALUES('Перец чили','250','1200','3');
+
+
