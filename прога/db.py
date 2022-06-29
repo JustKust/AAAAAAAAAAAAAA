@@ -1,5 +1,4 @@
 import pymysql
-import datetime
 
 class Database:
     def __init__(self):
@@ -7,8 +6,8 @@ class Database:
             host='localhost',
             port=3306,
             user='root',
-            password='Cahrxisjy8252',
             database='cfcgdfgh',
+            password='Cahrxisjy8252'
         )
 
     def getCLients(self):
@@ -64,11 +63,25 @@ class Database:
 
     def insertProductInList(self, price, amount, orderID, ProductID):
         cursor = self.connection.cursor()
-        cursor.execute(
-            f"INSERT INTO Shopping_list"
-            f"(`Price`, `Amount`, `OrderID`, `ProductID`)"
-            f"VALUES ('{price}', '{amount}', '{orderID}', '{ProductID}')"
-        )
+        cursor.execute("INSERT INTO Shopping_list VALUES (NULL, %s, %s, %s, %s)", (price, amount, orderID, ProductID))
+        cursor.close()
+        self.connection.commit()
+
+    def insertProduct(self, name, cost, availability, CompID):
+        cursor = self.connection.cursor()
+        cursor.execute("INSERT INTO Product VALUES (NULL, %s, %s, %s, %s)", (name, cost, availability, CompID))
+        cursor.close()
+        self.connection.commit()
+
+    def insertCompany(self, name, email, phone):
+        cursor = self.connection.cursor()
+        cursor.execute("INSERT INTO Company VALUES (NULL, %s, %s, %s)", (name, email, phone))
+        cursor.close()
+        self.connection.commit()
+
+    def insertEmp(self, name, surname, post, phone, email, log, pas):
+        cursor = self.connection.cursor()
+        cursor.execute("INSERT INTO Employee VALUES (NULL, %s, %s, %s, %s, %s, %s, %s)", (name, surname, post, phone, email, log, pas))
         cursor.close()
         self.connection.commit()
 
@@ -94,11 +107,25 @@ class Database:
         cursor.close()
         return log
 
+    def get_orders_id(self):
+        id_list = []
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT OrderID FROM Orders")
+        rows = cursor.fetchall()
+        for i in rows:
+            id_list.append(str(i)[1:-2])
+        cursor.close()
+        return id_list
+
     def get_product_list(self):
-        cur = self.connection.cursor()
-        p_list = [str(i)[1:-2] for i in cur.execute("SELECT Name FROM Product")]
-        cur.close()
-        return p_list
+        ProdList = []
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT Name FROM Product")
+        rows = cursor.fetchall()
+        for i in rows:
+            ProdList.append(str(i)[2:-3])
+        cursor.close()
+        return ProdList
 
     def get_cost(self, name):
         cursor = self.connection.cursor()
@@ -111,8 +138,54 @@ class Database:
         cursor = self.connection.cursor()
         cursor.execute(f"""SELECT ProductID FROM Product WHERE Name = '{name}'""")
         id = cursor.fetchone()
+        for i in id:
+            return i
         cursor.close()
-        return id[1:-1]
+
+    def get_comp_names(self):
+        CompList = []
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT Name FROM Company")
+        rows = cursor.fetchall()
+        for i in rows:
+            CompList.append(str(i)[2:-3])
+        cursor.close()
+        return CompList
+
+    def get_comp_id(self, name):
+        cursor = self.connection.cursor()
+        cursor.execute(f"""SELECT CompanyID FROM Company WHERE Name = '{name}'""")
+        id = cursor.fetchone()
+        for i in id:
+            return i
+        cursor.close()
+
+    def get_client_id(self):
+        id_list = []
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT ClientID FROM Client")
+        rows = cursor.fetchall()
+        for i in rows:
+            id_list.append(str(i)[1:-2])
+        cursor.close()
+        return id_list
+
+    def get_emp_id(self):
+        id_list = []
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT EmployeeID FROM Employee")
+        rows = cursor.fetchall()
+        for i in rows:
+            id_list.append(str(i)[1:-2])
+        cursor.close()
+        return id_list
+
+    def get_client_name(self, id):
+        cursor = self.connection.cursor()
+        cursor.execute(f"""SELECT Name FROM Client WHERE ClientID = '{id}'""")
+        cost = str(cursor.fetchone())
+        cursor.close()
+        return cost[2:-3]
 
 if __name__ == '__main__':
     D = Database()

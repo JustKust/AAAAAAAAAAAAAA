@@ -55,7 +55,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="order_code"/>
+       <widget class="QComboBox" name="order_code"/>
       </item>
      </layout>
     </item>
@@ -78,7 +78,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="product"/>
+       <widget class="QComboBox" name="product"/>
       </item>
      </layout>
     </item>

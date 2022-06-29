@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>260</height>
+    <width>648</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,9 +22,9 @@
      <height>241</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="4,7">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="4,7,0">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1,1,1,1,1">
+     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1,1,1,1">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,8">
         <item>
@@ -114,29 +114,6 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="2,8">
-        <item>
-         <widget class="QLabel" name="label_7">
-          <property name="font">
-           <font>
-            <family>Comic Sans MS</family>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Имя клиента:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="client_name"/>
-        </item>
-       </layout>
-      </item>
-      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="2,8">
         <item>
          <widget class="QLabel" name="label_10">
@@ -155,7 +132,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="client_code"/>
+         <widget class="QComboBox" name="client_code"/>
         </item>
        </layout>
       </item>
@@ -178,7 +155,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="emp_code"/>
+         <widget class="QComboBox" name="emp_code"/>
         </item>
        </layout>
       </item>
@@ -642,6 +619,19 @@
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="back_btn">
+      <property name="font">
+       <font>
+        <family>Comic Sans MS</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Закрыть</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
