@@ -6,8 +6,7 @@ class Database:
             host='localhost',
             port=3306,
             user='root',
-            database='cfcgdfgh',
-            password='Cahrxisjy8252'
+            database='cfcgdfgh'
         )
 
     def getCLients(self):
